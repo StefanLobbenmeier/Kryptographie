@@ -22,7 +22,7 @@ public class Enigma {
 	public Enigma() {
 		WALZE_1.setNextWalze(WALZE_2);
 		WALZE_2.setNextWalze(WALZE_3);
-		walzen = new EnigmaWalze[] {WALZE_1, WALZE_2, WALZE_3, Umkehrwalze, Umkehrwalze, WALZE_3, WALZE_2, WALZE_1};
+		walzen = new EnigmaWalze[] {WALZE_1, WALZE_2, WALZE_3, Umkehrwalze, WALZE_3, WALZE_2, WALZE_1};
 	}
 	
 	public char encrypt(char c) {
@@ -33,11 +33,11 @@ public class Enigma {
 	
 	public char getValueWithoutRotation(char c) {
 		char encryptedC = c;
-//		StringJoiner joiner = new StringJoiner(" -> ");
-//		joiner.add(String.valueOf(encryptedC));
+		StringJoiner joiner = new StringJoiner(" -> ");
+		joiner.add(String.valueOf(encryptedC));
 		for(EnigmaWalze walze: walzen) {
 			encryptedC = walze.transformChar(encryptedC);
-//			joiner.add(String.valueOf(encryptedC));
+			joiner.add(String.valueOf(encryptedC));
 		}
 //		System.out.println(joiner.toString());
 		return encryptedC;

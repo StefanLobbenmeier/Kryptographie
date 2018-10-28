@@ -12,6 +12,7 @@ public class EnigmaMain {
 		for(int i = 0; i < 26*26*26; i++) {
 			char encrypted = enigma.encrypt(getCurrentProgressChar());
 			logProgress(encrypted, i);
+			
 		}
 	}
 	
@@ -28,8 +29,13 @@ public class EnigmaMain {
 						decrypted, 100.0 * progress / cypher.length(), 100.0 * i / (26 * 26 * 26), i);
 			}
 		} else {
-			decrypted = "";
-			progress = 0;
+			if (encrypted == firstPartOfDecrypted.charAt(0)) {
+				decrypted = "" +  encrypted;
+				progress = 1;
+			} else {
+				decrypted = "";
+				progress = 0;
+			}
 		}
 	}
 

@@ -12,7 +12,6 @@ public class EnigmaMain {
 		for(int i = 0; i < 26*26*26; i++) {
 			char encrypted = enigma.encrypt(getCurrentProgressChar());
 			logProgress(encrypted, i);
-			
 		}
 	}
 	

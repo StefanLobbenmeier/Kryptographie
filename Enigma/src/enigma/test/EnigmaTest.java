@@ -31,7 +31,7 @@ class EnigmaTest extends Enigma {
 		System.out.println(encryption);
 		System.out.println();
 		
-		assertEquals("DLSGAMWZRTQUNKHOEXBPFVIJCY", encryption);
+		assertEquals("UEJOBTPZWCNSRKDGVMLFAQIYXH", encryption);
 	}
 
 	@Test
@@ -45,7 +45,7 @@ class EnigmaTest extends Enigma {
 		System.out.println(encryption);
 		System.out.println();
 		
-		assertEquals("NMIKRSWVOTZQXYDEBJUHAPGLCF", encryption);
+		assertEquals("PGLVAUHXYMIDQNEOSJRBTCWZKF", encryption);
 		
 	}
 	
@@ -57,6 +57,31 @@ class EnigmaTest extends Enigma {
 		        StringJoiner::toString);
 		
 		return toCharacterList(aToZ).stream().map(enigma::getValueWithoutRotation).collect(characterToStringCollector);
+	}
+
+
+	@Test
+	void testSymetry() {
+		String aToZ = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+		String encryption = getAllValues(aToZ);
+		String decryption = getAllValues(encryption);
+		System.out.println();
+		
+		assertEquals(aToZ, decryption);
+	}
+	
+	@Test
+	void testSymetryAfterRotation() {
+		String aToZ = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		
+		enigma.rotate();
+
+		String encryption = getAllValues(aToZ);
+		String decryption = getAllValues(encryption);
+		System.out.println();
+		
+		assertEquals(aToZ, decryption);
 	}
 
 }

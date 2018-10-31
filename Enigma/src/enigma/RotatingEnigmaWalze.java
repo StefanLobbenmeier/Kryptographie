@@ -6,32 +6,41 @@ import java.util.Optional;
 import static util.CharUtils.charToNum;
 import static util.CharUtils.numToChar;
 
-public class EnigmaWalze {
-	
-	private int[] vectors;
-	private int nextRotationBefore;
-	private Optional<EnigmaWalze> nextWalze = Optional.empty();
+public class RotatingEnigmaWalze implements IEnigmaWalze {
 
-	public EnigmaWalze(char[] characterValues, int nextRotationBefore) {
+	private int[] vectors;
+	private int[] invertedVectors;
+	private int nextRotationBefore;
+	private Optional<RotatingEnigmaWalze> nextWalze = Optional.empty();
+
+	public RotatingEnigmaWalze(char[] characterValues, int nextRotationBefore) {
 		this.nextRotationBefore = nextRotationBefore;
-		this.vectors = transformCharactervaluesToVectors(characterValues);
+		transformCharactervaluesToVectors(characterValues);
 	}
 
-	public EnigmaWalze(char[] characterValues) {
+	public RotatingEnigmaWalze(char[] characterValues) {
 		this(characterValues, 25);
 	}
 	
-	private int[] transformCharactervaluesToVectors(char[] characterValues) {
-		int[] vectors = new int[characterValues.length];
+	private void transformCharactervaluesToVectors(char[] characterValues) {
+		vectors = new int[characterValues.length];
+		invertedVectors = new int[characterValues.length];
 		for(int i = 0; i < characterValues.length; i++) {
-			vectors[i] = vector(characterValues, i);
+			int vector = vector(characterValues, i);
+			vectors[i] = vector;
+			invertedVectors[(i + vector + 26)%26] = -vector;
 		}
-		return vectors;
 	}
 
+	@Override
 	public char transformChar(char c) {
 		int pos = charToNum(c);
 		return applyVector(pos);
+	}
+
+	public char untransformChar(char c) {
+		int pos = charToNum(c);
+		return applyInvertedVector(pos);
 	}
 	
 	public void rotate() {
@@ -43,10 +52,13 @@ public class EnigmaWalze {
 		
 		int length = vectors.length;
 		int[] newVectors = new int[length];
+		int[] newInvertedVectors = new int[length];
 		for(int pos = 0; pos < length; pos++) {
 			newVectors[pos] = vectors[(pos + 1) % length];
+			newInvertedVectors[pos] = invertedVectors[(pos + 1) % length];
 		}
 		vectors = newVectors;
+		invertedVectors = newInvertedVectors;
 	}
 
 	public boolean shouldRotateNextOne() {
@@ -61,11 +73,19 @@ public class EnigmaWalze {
 		return numToChar(pos + vectors[pos]);
 	}
 	
+	protected char applyInvertedVector(int pos) {
+		return numToChar(pos + invertedVectors[pos]);
+	}
+	
+	public InvertedEnigmaWalze inverted() {
+		return new InvertedEnigmaWalze(this);
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) return false;
 		if (this.getClass().equals(obj.getClass())) {
-			EnigmaWalze other = (EnigmaWalze) obj;
+			RotatingEnigmaWalze other = (RotatingEnigmaWalze) obj;
 			return nextRotationBefore == other.nextRotationBefore &&
 					Arrays.equals(vectors, other.vectors);
 		}
@@ -84,7 +104,7 @@ public class EnigmaWalze {
 		return String.copyValueOf(values);
 	}
 
-	public void setNextWalze(EnigmaWalze walze) {
+	public void setNextWalze(RotatingEnigmaWalze walze) {
 		nextWalze = Optional.of(walze);
 	}
 }

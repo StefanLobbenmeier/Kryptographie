@@ -10,19 +10,19 @@ public class Enigma {
 	private static final char[] werte_walze_3 = new char[] {'E','K','M','F','L','G','D','Q','V','Z','N','T','O','W','Y','H','X','U','S','P','A','I','B','R','C','J'};
 	private static final char[] werte_umkehrwalze = new char[] {'Y','R','U','H','Q','S','L','D','P','X','N','G','O','K','M','I','E','B','F','Z','C','W','V','J','A','T'};
 
-	public static final EnigmaWalze WALZE_1 = new EnigmaWalze(werte_walze_1, 22);
-	public static final EnigmaWalze WALZE_2 = new EnigmaWalze(werte_walze_2);
-	public static final EnigmaWalze WALZE_3 = new EnigmaWalze(werte_walze_3);
-	public static final EnigmaWalze Umkehrwalze = new EnigmaWalze(werte_umkehrwalze);
+	public static final RotatingEnigmaWalze WALZE_1 = new RotatingEnigmaWalze(werte_walze_1, 22);
+	public static final RotatingEnigmaWalze WALZE_2 = new RotatingEnigmaWalze(werte_walze_2);
+	public static final RotatingEnigmaWalze WALZE_3 = new RotatingEnigmaWalze(werte_walze_3);
+	public static final IEnigmaWalze Umkehrwalze = new RotatingEnigmaWalze(werte_umkehrwalze);
 	
-	private EnigmaWalze[] walzen;
+	private IEnigmaWalze[] walzen;
 	
 	
 	
 	public Enigma() {
 		WALZE_1.setNextWalze(WALZE_2);
 		WALZE_2.setNextWalze(WALZE_3);
-		walzen = new EnigmaWalze[] {WALZE_1, WALZE_2, WALZE_3, Umkehrwalze, WALZE_3, WALZE_2, WALZE_1};
+		walzen = new IEnigmaWalze[] {WALZE_1, WALZE_2, WALZE_3, Umkehrwalze, WALZE_3.inverted(), WALZE_2.inverted(), WALZE_1.inverted()};
 	}
 	
 	public char encrypt(char c) {
@@ -35,7 +35,7 @@ public class Enigma {
 		char encryptedC = c;
 		StringJoiner joiner = new StringJoiner(" -> ");
 		joiner.add(String.valueOf(encryptedC));
-		for(EnigmaWalze walze: walzen) {
+		for(IEnigmaWalze walze: walzen) {
 			encryptedC = walze.transformChar(encryptedC);
 			joiner.add(String.valueOf(encryptedC));
 		}

@@ -2,6 +2,8 @@ package util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
+import java.util.stream.Collector;
 
 public class CharUtils {
 	public static int charToNum(char c) {
@@ -20,5 +22,13 @@ public class CharUtils {
 			abccba.add(c);
 		}
 		return abccba;
+	}
+	
+	public Collector<Object, StringJoiner, String> characterToStringJoiner() {
+		return Collector.of(
+				() -> new StringJoiner(""), 
+				(joiner, c) -> joiner.add(String.valueOf(c)), 
+				(j1, j2) -> j1.merge(j2),
+				StringJoiner::toString);
 	}
 }

@@ -7,29 +7,62 @@ public class KeyProbability implements Comparable<KeyProbability> {
 	
 	private static final HashMap<Integer, Byte> knownKeys;
 
-	static void addKnownKey(int index, int key) {
+	private static void addKnownKey(int index, int key) {
 		knownKeys.put(index, (byte) key);
 	}
-	static void addKnownKeys(int index, int... keys) {
+	private static void addKnownKeys(int index, int... keys) {
 		for (int i = 0; i < keys.length; i++) {
 			addKnownKey(index + i, keys[i]);
 		}
 	}
 	
+	private static void addKnownText(int cypherIndex, int charIndex, String decrypted) {
+		for(int i = 0; i < decrypted.length(); i++) {
+			char c = decrypted.charAt(i);
+			int currentIndex = charIndex + i;
+			addKnownKey(currentIndex, c ^ Data.get(cypherIndex, currentIndex));
+		}
+	}
+	
 	static {
 		knownKeys = new HashMap<>();
-		addKnownKeys(37, 0x20, 0x61, 0x72, 0x65, 0x20, 0x62, 0x61, 0x64, 0x20, 0x6B, 0x65); // yot do thh -> you do the (2, harmonic average)
-		addKnownKeys(99, 0x74, 0x20, 0x6C, 0x65, 0x61, 0x73, 0x74, 0x20, 0x74, 0x68); //we scn't -> we don't
-		addKnownKeys(94, 0x64, 0x73, 0x2E, 0x20, 0x41); //ill over again. -> all 
-		addKnownKeys(90, 0x65);//  fAt my -> . At my
+
+		addKnownText(1, 36, " you do the ");
+		addKnownText(0, 95, " we don't know ");
+		addKnownText(1, 84, " to start all ");
+		addKnownText(2, 48, " ");
+		
+		//Maybe error in the cypher? Nvm, this will only work if "-" is included as a possible character
+		addKnownText(2, 76, " I told");
+		addKnownText(1, 75, " you have "); 
+		addKnownText(0, 73, " nine");  
+		addKnownText(1, 0, "I hate ");  
+		addKnownText(0, 0, "My grandmother");  
+		addKnownText(1, 6, " housework! ");  
+		addKnownText(2, 13, " urged ");  
+		addKnownText(0, 14, " started ");  
+		addKnownText(0, 30, " five miles ");  
+		addKnownText(1, 21, " make the ");  
+		addKnownText(0, 47, " when she was ");  
+		addKnownText(2, 59, " value every year.");  
+		
+		//Extend the loop
+		addKnownText(0, 109, " where ");  
+		addKnownText(2, 114, " buy ");    
+		addKnownText(0, 119, " hell she is.");	
+		
+		for(int i = 0; i < knownKeys.size(); i++) {
+			System.out.printf("%d = %02X ", knownKeys.keySet().toArray()[i], knownKeys.values().toArray()[i]);
+		}
+		System.out.println("\n");
 	}
 	
 	
-	private int index;
+	private int charIndex;
 	private byte key;
 
 	public KeyProbability(int index, byte key) {
-		this.index = index;
+		this.charIndex = index;
 		this.key = key;
 	}
 
@@ -39,8 +72,8 @@ public class KeyProbability implements Comparable<KeyProbability> {
 	}
 
 	private float getProbabilty() {
-		if (knownKeys.containsKey(index)) {
-			if (knownKeys.get(index) == key) return 1f;
+		if (knownKeys.containsKey(charIndex)) {
+			if (knownKeys.get(charIndex) == key) return 1f;
 //			else return 0f; this line would make sense if you know all the keys are correct, but not returning 0 does not hurt either, so you are safer if you give some alternatives in a good order
 		}
 		
@@ -60,11 +93,15 @@ public class KeyProbability implements Comparable<KeyProbability> {
 
 	public char[] decrypted() {
 		char[] decrypted = new char[Data.cypherCount()];
-		for (int i = 0; i < Data.cypherCount(); i++) {
-			byte encrypted = Data.cyphers[i][index];
-			decrypted[i] = (char) (encrypted ^ key);
+		for (int cypherIndex = 0; cypherIndex < Data.cypherCount(); cypherIndex++) {
+			byte encrypted = Data.get(cypherIndex, charIndex);
+			decrypted[cypherIndex] = (char) (encrypted ^ key);
 		}
 		return decrypted;
+	}
+
+	public byte getKey() {
+		return key;
 	}
 	
 	@Override

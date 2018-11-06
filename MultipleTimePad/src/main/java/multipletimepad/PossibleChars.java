@@ -28,6 +28,12 @@ public class PossibleChars {
 			possibleValues.add(',');
 			possibleValues.add('?');
 			
+			possibleValues.add('-');
+			
 		} return possibleValues;
+	}
+
+	public static boolean contains(char c) {
+		return getPossibleValues().contains(c);
 	}
 }

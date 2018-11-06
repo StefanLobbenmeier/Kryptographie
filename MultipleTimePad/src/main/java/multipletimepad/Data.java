@@ -27,7 +27,15 @@ public class Data {
 			0x17, 0x1b, 0x4e, 0x53, 0x1c, 0x49, 0x16, 0x56, 0x0e, 0x0b, 0x59, 0x42, 0x1c, 0x0a, 0x00, 0x0b, 0x1d, 0x0b,
 			0x02, 0x4e, 0x45, 0x0c, 0x0e, 0x1b, 0x06, 0x06, 0x4f, 0x5d, 0x00 };
 	
-	public static final byte[][] cyphers = new byte[][] {chiffrat1, chiffrat2, chiffrat3};
+	static final byte[][] cyphers = new byte[][] {chiffrat1, chiffrat2, chiffrat3};
+	
+	public static byte get(int cypherIndex, int charIndex) {
+		if(cyphers[cypherIndex].length > charIndex) {
+			return cyphers[cypherIndex][charIndex];
+		} else {
+			return 0x00;
+		}
+	}
 
 	public static int cypherCount() {
 		return cyphers.length;
@@ -41,5 +49,19 @@ public class Data {
 				leastLength = cypher.length;
 		}
 		return leastLength;
+	}
+
+	public static int maxCypherLength() {
+		int maxLength = Integer.MIN_VALUE;
+		
+		for (byte[] cypher: cyphers) {
+			if (cypher.length > maxLength) 
+				maxLength = cypher.length;
+		}
+		return maxLength;
+	}
+
+	static byte[] get(int cypherIndex) {
+		return cyphers[cypherIndex];
 	}
 }

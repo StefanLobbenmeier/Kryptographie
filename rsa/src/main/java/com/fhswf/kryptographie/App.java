@@ -45,7 +45,7 @@ public class App
 
         System.out.println(result);
 
-        BigInteger d = e.multiply(result.getT()).remainder(a);
+        BigInteger d = result.getS().multiply(a).add(BigInteger.ONE).divide(e);
 
         return d;
 

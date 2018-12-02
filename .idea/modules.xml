@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AES/AES.iml" filepath="$PROJECT_DIR$/AES/AES.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Enigma_old/Enigma_old.iml" filepath="$PROJECT_DIR$/Enigma_old/Enigma_old.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Praesenz3/Praesenz3.iml" filepath="$PROJECT_DIR$/Praesenz3/Praesenz3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/charutils/charutils.iml" filepath="$PROJECT_DIR$/charutils/charutils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/enigma/enigma.iml" filepath="$PROJECT_DIR$/enigma/enigma.iml" />
+      <module fileurl="file://$PROJECT_DIR$/enigmaparent/enigmaparent.iml" filepath="$PROJECT_DIR$/enigmaparent/enigmaparent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multipletimepad/multipletimepad.iml" filepath="$PROJECT_DIR$/multipletimepad/multipletimepad.iml" />
+    </modules>
+  </component>
+</project>

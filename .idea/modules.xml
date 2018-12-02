@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/enigma/enigma.iml" filepath="$PROJECT_DIR$/enigma/enigma.iml" />
       <module fileurl="file://$PROJECT_DIR$/enigmaparent/enigmaparent.iml" filepath="$PROJECT_DIR$/enigmaparent/enigmaparent.iml" />
       <module fileurl="file://$PROJECT_DIR$/multipletimepad/multipletimepad.iml" filepath="$PROJECT_DIR$/multipletimepad/multipletimepad.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rsa/rsa.iml" filepath="$PROJECT_DIR$/rsa/rsa.iml" />
     </modules>
   </component>
 </project>

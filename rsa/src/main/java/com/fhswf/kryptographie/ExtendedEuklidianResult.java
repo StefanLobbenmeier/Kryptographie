@@ -1,25 +1,36 @@
 package com.fhswf.kryptographie;
 
-public class ExtendedEuklidianResult {
-    private final int rest;
-    private final int s;
-    private final int t;
+import java.math.BigInteger;
 
-    public ExtendedEuklidianResult(int rest, int s, int t) {
+public class ExtendedEuklidianResult {
+    private final BigInteger rest;
+    private final BigInteger s;
+    private final BigInteger t;
+
+    public ExtendedEuklidianResult(BigInteger rest, BigInteger s, BigInteger t) {
         this.rest = rest;
         this.s = s;
         this.t = t;
     }
 
-    public int getRest() {
+    public BigInteger getRest() {
         return rest;
     }
 
-    public int getS() {
+    public BigInteger getS() {
         return s;
     }
 
-    public int getT() {
+    public BigInteger getT() {
         return t;
+    }
+
+    @Override
+    public String toString() {
+        return "ExtendedEuklidianResult{" +
+                "rest=" + rest +
+                ", s=" + s +
+                ", t=" + t +
+                '}';
     }
 }

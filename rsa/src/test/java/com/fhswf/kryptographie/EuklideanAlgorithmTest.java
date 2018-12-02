@@ -3,6 +3,8 @@ package com.fhswf.kryptographie;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.math.BigInteger;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
@@ -39,8 +41,12 @@ public class EuklideanAlgorithmTest {
     private void testExtendedGgt(int a, int b, int ggt) {
         ExtendedEuklidianResult result = EuklideanAlgorithm.extendedGgT(a, b);
 
+
+        BigInteger sa = result.getS().multiply(BigInteger.valueOf(a));
+        BigInteger tb = result.getT().multiply(BigInteger.valueOf(b));
+
         assertThat(
-                String.format("%d * %d + %d * %d is not %d", result.getS(), a, result.getT(), b, ggt),
-                        result.getS() * a + result.getT() * b, is(ggt));
+                String.format("%s * %s + %s * %s is not %s", result.getS(), a, result.getT(), b, ggt),
+                        sa.add(tb), is(BigInteger.valueOf(ggt)));
     }
 }

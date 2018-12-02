@@ -14,15 +14,40 @@ public class App
 {
     public static void main( String[] args ) throws InvalidKeyException
     {
-        RSAPublicKey arthursKey = new RSAPublicKeyImpl(BigInteger.valueOf(221), BigInteger.valueOf(55));
-        RSAPublicKey fordsKey = new RSAPublicKeyImpl(BigInteger.valueOf(391), BigInteger.valueOf(3));
+        RSAPublicKey arthursKey = new ShortRSAKey(BigInteger.valueOf(221), BigInteger.valueOf(55));
+        RSAPublicKey fordsKey = new ShortRSAKey(BigInteger.valueOf(391), BigInteger.valueOf(3));
 
         BigInteger commonP = getCommonPrime(arthursKey, fordsKey);
+        BigInteger arthursQ = arthursKey.getModulus().divide(commonP);
+        BigInteger fordsQ = fordsKey.getModulus().divide(commonP);
 
-        System.out.println( "Hello World!");
+        System.out.println(commonP);
+
+        BigInteger arthursD = getD(commonP, arthursQ, arthursKey.getPublicExponent());
+        BigInteger fordsD = getD(commonP, fordsQ, fordsKey.getPublicExponent());
+
+        System.out.println(arthursD);
+        System.out.println(fordsD);
+
+
+
+
     }
 
     private static BigInteger getCommonPrime(RSAPublicKey arthursKey, RSAPublicKey fordsKey) {
         return EuklideanAlgorithm.ggT(arthursKey.getModulus(), fordsKey.getModulus());
+    }
+
+    private static BigInteger getD(BigInteger p, BigInteger q, BigInteger e) {
+        BigInteger a = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
+        BigInteger b = e;
+        ExtendedEuklidianResult result = EuklideanAlgorithm.extendedGgT(a, b);
+
+        System.out.println(result);
+
+        BigInteger d = e.multiply(result.getT()).remainder(a);
+
+        return d;
+
     }
 }

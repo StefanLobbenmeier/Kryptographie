@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.math.BigInteger;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class EuklideanAlgorithmTest {
 
@@ -48,5 +48,7 @@ public class EuklideanAlgorithmTest {
         assertThat(
                 String.format("%s * %s + %s * %s is not %s", result.getS(), a, result.getT(), b, ggt),
                         sa.add(tb), is(BigInteger.valueOf(ggt)));
+
+
     }
 }

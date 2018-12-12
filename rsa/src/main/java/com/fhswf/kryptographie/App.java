@@ -6,7 +6,7 @@ import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.InvalidKeyException;
-import java.security.interfaces.RSAPublicKey;
+import java.security.SecureRandom;
 
 /**
  * Hello world!
@@ -14,10 +14,15 @@ import java.security.interfaces.RSAPublicKey;
  */
 public class App 
 {
-    public static void main( String[] args ) throws InvalidKeyException
+
+    public static final BigInteger DEFAULT_MODULUS = BigInteger.valueOf(65537);
+
+    public static void main(String[] args ) throws InvalidKeyException
     {
         task1a();
         task1b();
+
+        task3();
     }
 
     private static void task1a() {
@@ -25,8 +30,8 @@ public class App
 
         BigInteger c = BigInteger.valueOf(5);
 
-        RSAPublicKey arthursKey = new ShortRSAKey(BigInteger.valueOf(221), BigInteger.valueOf(55));
-        RSAPublicKey fordsKey = new ShortRSAKey(BigInteger.valueOf(391), BigInteger.valueOf(3));
+        ShortRSAKey arthursKey = new ShortRSAKey(BigInteger.valueOf(221), BigInteger.valueOf(55));
+        ShortRSAKey fordsKey = new ShortRSAKey(BigInteger.valueOf(391), BigInteger.valueOf(3));
 
         decryptCommonPrimeRsa(c, arthursKey, fordsKey);
         System.out.println();
@@ -39,9 +44,7 @@ public class App
         BigInteger e_arthur = readBigIntegerFromFile("rsa/data/rsa_public_key_arthur.txt");
         BigInteger e_ford = readBigIntegerFromFile("rsa/data/rsa_public_key_ford.txt");
 
-        BigInteger modulus = BigInteger.valueOf(65537);
-
-        BigInteger m = decryptCommonPrimeRsa(rsa_cypher, new ShortRSAKey(e_arthur, modulus), new ShortRSAKey(e_ford, modulus));
+        BigInteger m = decryptCommonPrimeRsa(rsa_cypher, new ShortRSAKey(e_arthur, DEFAULT_MODULUS), new ShortRSAKey(e_ford, DEFAULT_MODULUS));
 
 
 
@@ -59,7 +62,7 @@ public class App
         }
     }
 
-    private static BigInteger decryptCommonPrimeRsa(BigInteger c, RSAPublicKey arthursKey, RSAPublicKey fordsKey) {
+    private static BigInteger decryptCommonPrimeRsa(BigInteger c, ShortRSAKey arthursKey, ShortRSAKey fordsKey) {
         BigInteger commonP = getCommonPrime(arthursKey, fordsKey);
         BigInteger arthursQ = arthursKey.getModulus().divide(commonP);
         BigInteger fordsQ = fordsKey.getModulus().divide(commonP);
@@ -81,7 +84,7 @@ public class App
         return m;
     }
 
-    private static BigInteger getCommonPrime(RSAPublicKey arthursKey, RSAPublicKey fordsKey) {
+    private static BigInteger getCommonPrime(ShortRSAKey arthursKey, ShortRSAKey fordsKey) {
         return EuklideanAlgorithm.ggT(arthursKey.getModulus(), fordsKey.getModulus());
     }
 
@@ -97,5 +100,29 @@ public class App
 
         return b.add(result.getS());
 
+    }
+
+    private static void task3() {
+        System.out.println("3");
+
+        SecureRandom random = new SecureRandom();
+        BigInteger p = BigInteger.probablePrime(1024, random);
+        BigInteger q = BigInteger.probablePrime(1024, random);
+        BigInteger n = p.multiply(q);
+
+        BigInteger e = BigInteger.probablePrime(1024, random);
+        BigInteger d = getD(p, q, e);
+
+        ShortRSAKey publicKey = new ShortRSAKey(n, e);
+        ShortRSAKey privteKey = new ShortRSAKey(n, d);
+
+            BigInteger message = new BigInteger("31415926");
+            BigInteger encrypted = publicKey.crypt(message);
+
+            System.out.println("encrypted = " + encrypted);
+
+            BigInteger decrypted = privteKey.crypt(encrypted);
+
+            System.out.println("decrypted = " + decrypted);
     }
 }

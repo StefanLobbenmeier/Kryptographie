@@ -1,12 +1,8 @@
 package com.fhswf.kryptographie;
 
-import sun.security.rsa.RSAPublicKeyImpl;
-import sun.security.x509.X509Key;
-
 import java.math.BigInteger;
-import java.security.interfaces.RSAPublicKey;
 
-public class ShortRSAKey  extends X509Key implements RSAPublicKey {
+public class ShortRSAKey {
     private final BigInteger modulus;
     private final BigInteger exponent;
 
@@ -15,22 +11,18 @@ public class ShortRSAKey  extends X509Key implements RSAPublicKey {
         this.exponent = exponent;
     }
 
-    @Override
     public BigInteger getPublicExponent() {
         return exponent;
     }
 
-    @Override
     public String getAlgorithm() {
         return "RSA";
     }
 
-    @Override
-    public byte[] getEncoded() {
-        return new byte[0];
+    public BigInteger crypt(BigInteger data) {
+        return data.modPow(exponent, modulus);
     }
 
-    @Override
     public BigInteger getModulus() {
         return modulus;
     }

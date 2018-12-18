@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="rsa" />
+        <module name="smallstepgiantstep" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="rsa" target="8" />
+      <module name="rsa" target="1.7" />
+      <module name="smallstepgiantstep" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -4,6 +4,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/rsa/pom.xml" />
+        <option value="$PROJECT_DIR$/smallstepgiantstep/pom.xml" />
       </list>
     </option>
   </component>

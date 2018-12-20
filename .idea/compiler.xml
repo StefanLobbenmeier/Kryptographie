@@ -11,8 +11,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="rsa" target="1.7" />
-      <module name="smallstepgiantstep" target="1.5" />
+      <module name="rsa" target="8" />
+      <module name="smallstepgiantstep" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -16,16 +16,16 @@ public class TestDiffieHellman
     @Test
     public void testDiffieHellman() {
         SecureRandom random = new SecureRandom();
-        DiffieHellmanGroup group = new DiffieHellmanGroup(BigInteger.probablePrime(100, random));
+        ZModZPStarGroup group = new ZModZPStarGroup(BigInteger.probablePrime(100, random));
 
-        DiffieHellmanGroupElement g = group.getElement(BigInteger.probablePrime(50, random));
-        DiffieHellmanGroupElement alice = group.getElement(BigInteger.probablePrime(50, random));
-        DiffieHellmanGroupElement bob = group.getElement(BigInteger.probablePrime(50, random));
+        ZModZPStarElement g = group.getElement(BigInteger.probablePrime(50, random));
+        ZModZPStarElement alice = group.getElement(BigInteger.probablePrime(50, random));
+        ZModZPStarElement bob = group.getElement(BigInteger.probablePrime(50, random));
 
-        DiffieHellmanGroupElement bigA = g.pow(alice);
-        DiffieHellmanGroupElement bigB = g.pow(bob);
+        ZModZPStarElement bigA = g.pow(alice.getValue());
+        ZModZPStarElement bigB = g.pow(bob.getValue());
 
 
-        assertThat(bigA.pow(bob).getValue(), is(bigB.pow(alice).getValue()));
+        assertThat(bigA.pow(bob.getValue()).getValue(), is(bigB.pow(alice.getValue()).getValue()));
     }
 }

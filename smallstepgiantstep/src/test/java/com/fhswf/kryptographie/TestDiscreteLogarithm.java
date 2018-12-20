@@ -14,9 +14,9 @@ public class TestDiscreteLogarithm
 {
     @Test
     public void testDiscreteLogarithm() {
-        DiffieHellmanGroup group = new DiffieHellmanGroup(BigInteger.valueOf(131));
-        DiffieHellmanGroupElement bigA = group.getElement(BigInteger.valueOf(125));
-        DiffieHellmanGroupElement base = group.getElement(BigInteger.valueOf(2));
+        ZModZPStarGroup group = new ZModZPStarGroup(BigInteger.valueOf(131));
+        ZModZPStarElement bigA = group.getElement(BigInteger.valueOf(125));
+        ZModZPStarElement base = group.getElement(BigInteger.valueOf(2));
 
         int foundA = BabyStepGiantStep.babyStepGiantStep(group, bigA, base);
 

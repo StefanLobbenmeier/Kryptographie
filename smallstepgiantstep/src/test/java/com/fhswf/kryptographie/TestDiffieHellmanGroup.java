@@ -11,22 +11,20 @@ public class TestDiffieHellmanGroup {
     @Test
     public void testTask1Result()
     {
-        DiffieHellmanGroup group = new DiffieHellmanGroup(BigInteger.valueOf(131));
+        ZModZPStarGroup group = new ZModZPStarGroup(131);
+        ZModZPStarElement base = group.getElement(2);
 
-        DiffieHellmanGroupElement base = group.getElement(BigInteger.valueOf(2));
-        DiffieHellmanGroupElement exponent = group.getElement(BigInteger.valueOf(8));
-
-        assertThat(base.pow(exponent).getValue(), is(BigInteger.valueOf(125)));
+        assertThat(base.pow(8).getValue(), is(BigInteger.valueOf(125)));
     }
 
     @Test
     public void testModulusWorks()
     {
-        DiffieHellmanGroup group = new DiffieHellmanGroup(BigInteger.valueOf(5));
-        DiffieHellmanGroupElement two = group.getElement(BigInteger.valueOf(2));
-        DiffieHellmanGroupElement four = group.getElement(BigInteger.valueOf(4));
+        ZModZPStarGroup group = new ZModZPStarGroup(5);
+        ZModZPStarElement two = group.getElement(2);
+        ZModZPStarElement four = group.getElement(4);
 
-        assertThat(four.pow(two).getValue(), is(BigInteger.ONE));
-        assertThat(two.pow(four).getValue(), is(BigInteger.ONE));
+        assertThat(four.pow(2).getValue(), is(BigInteger.ONE));
+        assertThat(two.pow(4).getValue(), is(BigInteger.ONE));
     }
 }

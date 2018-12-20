@@ -10,7 +10,7 @@ public class BigIntegerUtil {
         }
         // square roots of 0 and 1 are trivial and
         // y == 0 will cause a divide-by-zero exception
-        if (x == BigInteger.ZERO || x == BigInteger.ONE) {
+        if (x.equals(BigInteger.ZERO) || x.equals(BigInteger.ONE)) {
             return x;
         } // end if
         BigInteger two = BigInteger.valueOf(2L);
@@ -24,5 +24,9 @@ public class BigIntegerUtil {
         } else {
             return y.add(BigInteger.ONE);
         }
+    }
+
+    public static boolean isEven(BigInteger i) {
+        return i.getLowestSetBit() != 0;
     }
 }

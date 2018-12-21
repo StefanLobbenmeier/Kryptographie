@@ -21,19 +21,6 @@ public class ZModZPStarGroup implements Group<ZModZPStarElement> {
         return getElement(BigInteger.valueOf(value));
     }
 
-    public ZModZPStarElement pow(ZModZPStarElement b, BigInteger e) {
-        return getDiffieHellmanGroupElement(b, e);
-    }
-
-    public ZModZPStarElement multiply(ZModZPStarElement factorA, ZModZPStarElement factorB) {
-        return getElement(factorA.getValue().multiply(factorB.getValue()).mod(modulus));
-    }
-
-    public ZModZPStarElement getDiffieHellmanGroupElement(ZModZPStarElement b, BigInteger bigInteger) {
-        BigInteger value = b.getValue().modPow(bigInteger, modulus);
-        return new ZModZPStarElement(this, value);
-    }
-
     public BigInteger getModulus() {
         return modulus;
     }
@@ -51,5 +38,10 @@ public class ZModZPStarGroup implements Group<ZModZPStarElement> {
     @Override
     public int hashCode() {
         return modulus.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Z/%sZ", modulus);
     }
 }

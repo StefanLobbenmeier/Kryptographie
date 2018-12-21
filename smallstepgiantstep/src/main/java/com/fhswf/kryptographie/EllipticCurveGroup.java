@@ -1,9 +1,11 @@
 package com.fhswf.kryptographie;
 
+import org.apache.commons.lang3.Range;
+
 import java.math.BigInteger;
 
 public class EllipticCurveGroup implements Group<EllipticCurveGroupElement> {
-    static final EllipticCurveGroupElement NEUTRAL_ELEMENT = new EllipticCurveNeutralElement();
+    static final EllipticCurveGroupElement NEUTRAL_ELEMENT = EllipticCurveNeutralElement.getNeutralElement();
     private final ZModZPStarElement u;
     private final ZModZPStarElement v;
     private final ZModZPStarGroup group;
@@ -32,41 +34,66 @@ public class EllipticCurveGroup implements Group<EllipticCurveGroupElement> {
         }
     }
 
-//    /**
-//     * @return (x ^ 3 + u * x + v) mod modulus
-//     */
-//    BigInteger f(BigInteger x) {
-//        System.out.println("x = [" + x + "]");
-//        BigInteger y2 = x.pow(3)
-//                .add(u.multiply(x))
-//                .add(v);
-//        System.out.println("y2 = " + y2);
-//
-//        BigInteger y = BigIntegerUtil.bigIntSqRootCeil(y2);
-//        System.out.println("y = " + y);
-//
-//        return y.mod(modulus);
-//
-//
-//    }
+    /**
+     * @return (x ^ 3 + u * x + v) mod modulus
+     */
+    private boolean liesOnCurve(ZModZPStarElement x, ZModZPStarElement y) {
+        ZModZPStarElement leftSide = y.pow(2);
 
-    private EllipticCurveActualElement getElement(BigInteger x, BigInteger y) {
-        return new EllipticCurveActualElement(this, group.getElement(x), group.getElement(y));
+        ZModZPStarElement rightSide = x.pow(3)
+                .add(u.multiply(x))
+                .add(v);
+
+        return leftSide.equals(rightSide);
+    }
+
+    public boolean liesOnCurve(int x, int y) {
+        return liesOnCurve(getUnderlyingGroup().getElement(x), getUnderlyingGroup().getElement(y));
+    }
+
+    private EllipticCurveActualElement getElement(ZModZPStarElement x, ZModZPStarElement y) {
+        if (!liesOnCurve(x, y))
+            throw new IllegalArgumentException(String.format("The Point P(%s, %s) does not lie on the curve)", x, y));
+        return new EllipticCurveActualElement(this, x, y);
     }
 
     public EllipticCurveActualElement getElement(int x, int y) {
-        return getElement(BigInteger.valueOf(x), BigInteger.valueOf(y));
+        return getElement(group.getElement(x), group.getElement(y));
+    }
+
+    public EllipticCurveActualElement getElement(int x) {
+        return null;//getElement(group.getElement(x), group.getElement(y));
     }
 
     public ZModZPStarElement getU() {
         return u;
     }
 
-    public BigInteger getModulus() {
-        return group.getModulus();
+    public ZModZPStarGroup getUnderlyingGroup() {
+        return group;
     }
 
-    public ZModZPStarElement getElement(int i) {
+    public ZModZPStarElement getFactor(int i) {
         return group.getElement(i);
+    }
+
+    public BigInteger countElements() {
+        for (BigInteger i = BigInteger.ZERO; i.compareTo(group.getModulus()) < 0; i = i.add(BigInteger.ONE)) {
+
+        }
+        return null;
+    }
+
+    public BigInteger getK() {
+        return getUnderlyingGroup().getModulus();
+    }
+
+    public Range<BigInteger> hasseInterval() {
+        BigInteger p = getK();
+        BigInteger _2TimesRootP = BigInteger.valueOf(2).multiply(BigIntegerUtil.bigIntSqRootCeil(p));
+        BigInteger pPlus1 = p.add(BigInteger.ONE);
+        BigInteger lBound = pPlus1.subtract(_2TimesRootP);
+        BigInteger uBound = pPlus1.add(_2TimesRootP);
+        return Range.between(lBound, uBound);
     }
 }

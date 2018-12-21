@@ -73,8 +73,11 @@ public class App
     private static void task2cEcc(EllipticCurveGroup group) {
         System.out.println("Task 2c) Find Order and Cofactor of p");
         EllipticCurveActualElement p = group.getElement(11, 33);
-        BigInteger orderOfP = p.getOrder();
 
+        BigInteger orderOfP = p.getOrder();
         System.out.println("orderOfP = " + orderOfP);
+
+        BigInteger cofactor = p.getCofactor();
+        System.out.println("cofactor = " + cofactor);
     }
 }

@@ -8,7 +8,7 @@ public class BabyStepGiantStep {
         ZModZPStarElement baseToM = base.pow(m);
 
         //prepare table
-        HashMap<ZModZPStarElement, Integer> preparedBaseToMToU = new HashMap<ZModZPStarElement, Integer>(m, 1);
+        HashMap<ZModZPStarElement, Integer> preparedBaseToMToU = new HashMap<>(m, 1);
         for (int u = 1; u <= m; u++) {
             ZModZPStarElement baseToMToU = baseToM.pow(u);
             preparedBaseToMToU.put(baseToMToU, u);

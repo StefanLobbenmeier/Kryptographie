@@ -5,7 +5,7 @@ import java.math.BigInteger;
 public class ZModZPStarElement implements GroupElement<ZModZPStarElement> {
 
     private final ZModZPStarGroup zModZPStarGroup;
-    private BigInteger value;
+    private final BigInteger value;
 
     public ZModZPStarElement(ZModZPStarGroup zModZPStarGroup, BigInteger value) {
         this.zModZPStarGroup = zModZPStarGroup;

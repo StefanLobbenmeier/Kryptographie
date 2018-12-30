@@ -3,7 +3,7 @@ package com.fhswf.kryptographie;
 import java.math.BigInteger;
 
 public class ZModZPStarGroup implements Group<ZModZPStarElement> {
-    private BigInteger modulus;
+    private final BigInteger modulus;
 
     ZModZPStarGroup(BigInteger modulus) {
         this.modulus = modulus;

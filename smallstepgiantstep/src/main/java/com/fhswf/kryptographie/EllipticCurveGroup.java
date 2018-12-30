@@ -23,14 +23,14 @@ public class EllipticCurveGroup implements Group<EllipticCurveGroupElement> {
     }
 
     /**
-     * @throws ArithmeticException if 4*u^3 + 27*v^2 == 0
+     * @throws IllegalArgumentException if 4*u^3 + 27*v^2 == 0
      */
-    void checkUAndV(BigInteger u, BigInteger v) {
+    static void checkUAndV(BigInteger u, BigInteger v) {
         BigInteger _4u3 = BigInteger.valueOf(4).multiply(u.pow(3));
         BigInteger _27v2 = BigInteger.valueOf(27).multiply(v.pow(2));
 
         if (_4u3.add(_27v2).equals(BigInteger.ZERO)) {
-            throw new ArithmeticException("Criteria 4*u^3 + 27*v^2 == 0 is not fulfilled");
+            throw new IllegalArgumentException("Criteria 4*u^3 + 27*v^2 == 0 is not fulfilled");
         }
     }
 
@@ -61,10 +61,6 @@ public class EllipticCurveGroup implements Group<EllipticCurveGroupElement> {
         return getElement(group.getElement(x), group.getElement(y));
     }
 
-    public EllipticCurveActualElement getElement(int x) {
-        return null;//getElement(group.getElement(x), group.getElement(y));
-    }
-
     public ZModZPStarElement getU() {
         return u;
     }
@@ -75,13 +71,6 @@ public class EllipticCurveGroup implements Group<EllipticCurveGroupElement> {
 
     public ZModZPStarElement getFactor(int i) {
         return group.getElement(i);
-    }
-
-    public BigInteger countElements() {
-        for (BigInteger i = BigInteger.ZERO; i.compareTo(group.getModulus()) < 0; i = i.add(BigInteger.ONE)) {
-
-        }
-        return null;
     }
 
     public BigInteger getK() {

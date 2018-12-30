@@ -17,9 +17,9 @@ public class EllipticCurveActualElementTest {
         group = new EllipticCurveGroup(1, 1, 17);
     }
 
-    @Test
-    public void checkUAndV() {
-
+    @Test(expected = IllegalArgumentException.class)
+    public void testThatConstructionOfIllegalGroupFails() {
+        new EllipticCurveGroup(BigInteger.ZERO, BigInteger.ZERO, BigInteger.ONE);
     }
 
     @Test
@@ -27,13 +27,13 @@ public class EllipticCurveActualElementTest {
 
         //Example from Script p. 160
 
-//        assertThat(group.f(BigInteger.valueOf(13)), is(BigInteger.ONE));
-//        assertThat(group.f(BigInteger.ZERO), is(BigInteger.ONE));
+        assertThat(group.liesOnCurve(13, 1), is(true));
+        assertThat(group.liesOnCurve(0, 1), is(true));
     }
 
 
     @Test
-    public void examplePowFromSlides() {
+    public void exampleMultiplyFromSlides() {
         //Slides p.251
         EllipticCurveActualElement q = group.getElement(4, 1);
 
@@ -49,7 +49,7 @@ public class EllipticCurveActualElementTest {
         EllipticCurveActualElement r = group.getElement(10, 5);
         EllipticCurveActualElement invR = group.getElement(10, 12);
 
-        assertThat(r.multiply(invR), is(group.NEUTRAL_ELEMENT));
+        assertThat(r.multiply(invR), is(EllipticCurveGroup.NEUTRAL_ELEMENT));
     }
     
     @Test 
@@ -80,9 +80,5 @@ public class EllipticCurveActualElementTest {
         assertThat(bigB, is(group.getElement(0, 1)));
 
 
-    }
-
-    @Test
-    public void multiply() {
     }
 }

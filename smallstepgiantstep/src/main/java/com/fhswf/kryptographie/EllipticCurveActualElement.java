@@ -8,8 +8,8 @@ import static com.fhswf.kryptographie.EllipticCurveGroup.NEUTRAL_ELEMENT;
 public class EllipticCurveActualElement implements EllipticCurveGroupElement {
 
     private final EllipticCurveGroup group;
-    private ZModZPStarElement x;
-    private ZModZPStarElement y;
+    private final ZModZPStarElement x;
+    private final ZModZPStarElement y;
 
     public EllipticCurveActualElement(EllipticCurveGroup group, ZModZPStarElement x, ZModZPStarElement y) {
         this.group = group;

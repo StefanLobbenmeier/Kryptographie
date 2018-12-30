@@ -23,7 +23,7 @@ public class App
         ZModZPStarElement base = group.getElement(BigInteger.valueOf(2));
         int a = BabyStepGiantStep.babyStepGiantStep(group, bigA, base);
 
-        System.out.printf("a = log2 %s = %s", bigA, a);
+        System.out.printf("a = log2 %s = %s %n", bigA, a);
 
         ZModZPStarElement check = base.pow(a);
         System.out.println("check = " + check);

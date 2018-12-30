@@ -10,15 +10,12 @@ import java.security.SecureRandom;
 
 /**
  * Hello world!
- *
  */
-public class App 
-{
+public class App {
 
     public static final BigInteger DEFAULT_MODULUS = BigInteger.valueOf(65537);
 
-    public static void main(String[] args ) throws InvalidKeyException
-    {
+    public static void main(String[] args) throws InvalidKeyException {
         task1a();
         task1b();
 
@@ -45,7 +42,6 @@ public class App
         BigInteger e_ford = readBigIntegerFromFile("rsa/data/rsa_public_key_ford.txt");
 
         BigInteger m = decryptCommonPrimeRsa(rsa_cypher, new ShortRSAKey(e_arthur, DEFAULT_MODULUS), new ShortRSAKey(e_ford, DEFAULT_MODULUS));
-
 
 
         String message = new String(m.toByteArray());
@@ -89,6 +85,7 @@ public class App
     }
 
     static BigInteger getD(BigInteger p, BigInteger q, BigInteger e) {
+        System.out.println("p = [" + p + "], q = [" + q + "], e = [" + e + "]");
         BigInteger a = e;
         BigInteger b = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
 
@@ -98,7 +95,10 @@ public class App
 
         System.out.println(result);
 
-        return b.add(result.getS());
+        if (result.getRest().equals(BigInteger.ONE))
+            return b.add(result.getS());
+
+        throw new IllegalArgumentException(String.format("e = %s and (p-1)*(q-1)=%s share a common Factor bigger than 1", e, b));
 
     }
 
@@ -116,13 +116,13 @@ public class App
         ShortRSAKey publicKey = new ShortRSAKey(n, e);
         ShortRSAKey privteKey = new ShortRSAKey(n, d);
 
-            BigInteger message = new BigInteger("31415926");
-            BigInteger encrypted = publicKey.crypt(message);
+        BigInteger message = new BigInteger("31415926");
+        BigInteger encrypted = publicKey.crypt(message);
 
-            System.out.println("encrypted = " + encrypted);
+        System.out.println("encrypted = " + encrypted);
 
-            BigInteger decrypted = privteKey.crypt(encrypted);
+        BigInteger decrypted = privteKey.crypt(encrypted);
 
-            System.out.println("decrypted = " + decrypted);
+        System.out.println("decrypted = " + decrypted);
     }
 }

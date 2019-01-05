@@ -4,6 +4,7 @@ import org.apache.commons.lang3.Range;
 
 import java.math.BigInteger;
 
+
 public class EllipticCurveGroup implements Group<EllipticCurveGroupElement> {
     static final EllipticCurveGroupElement NEUTRAL_ELEMENT = EllipticCurveNeutralElement.getNeutralElement();
     private final ZModZPStarElement u;
@@ -15,21 +16,21 @@ public class EllipticCurveGroup implements Group<EllipticCurveGroupElement> {
     }
 
     EllipticCurveGroup(BigInteger u, BigInteger v, BigInteger modulus) {
-        checkUAndV(u, v);
-
         group = new ZModZPStarGroup(modulus);
         this.u = group.getElement(u);
-        this.v = group.getElement(u);
+        this.v = group.getElement(v);
+
+        checkUAndV();
     }
 
     /**
      * @throws IllegalArgumentException if 4*u^3 + 27*v^2 == 0
      */
-    static void checkUAndV(BigInteger u, BigInteger v) {
-        BigInteger _4u3 = BigInteger.valueOf(4).multiply(u.pow(3));
-        BigInteger _27v2 = BigInteger.valueOf(27).multiply(v.pow(2));
+    void checkUAndV() {
+        ZModZPStarElement _4u3 = group.getElement(4).multiply(u.pow(3));
+        ZModZPStarElement _27v2 = group.getElement(27).multiply(v.pow(2));
 
-        if (_4u3.add(_27v2).equals(BigInteger.ZERO)) {
+        if (_4u3.add(_27v2).equals(group.getElement(BigInteger.ZERO))) {
             throw new IllegalArgumentException("Criteria 4*u^3 + 27*v^2 == 0 is not fulfilled");
         }
     }

@@ -31,6 +31,13 @@ public class EllipticCurveActualElementTest {
         assertThat(group.liesOnCurve(0, 1), is(true));
     }
 
+    @Test
+    public void testGetElement() {
+        assertThat(group.getElement(0).get(), is(group.getElement(0, 1)));
+        assertThat(group.getElement(4).get(), is(group.getElement(4, 1)));
+        assertThat(group.getElement(13).get(), is(group.getElement(13, 1)));
+    }
+
 
     @Test
     public void exampleMultiplyFromSlides() {

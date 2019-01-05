@@ -2,15 +2,13 @@ package com.fhswf.kryptographie;
 
 import java.math.BigInteger;
 import java.util.HashSet;
+import java.util.Optional;
 
 /**
  * Hello world!
- *
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
+public class App {
+    public static void main(String[] args) {
         task1BabystepGianststep();
 
         task2Ecc();
@@ -47,12 +45,12 @@ public class App
         HashSet<EllipticCurveGroupElement> elements = new HashSet<>();
         elements.add(EllipticCurveNeutralElement.getNeutralElement());
         int k = group.getK().intValue();
-        for(int x = 0; x < k; x++) {
-            for(int y = 0; y < k / 2 + 1; y++) {
-                if(group.liesOnCurve(x, y)) {
-                    elements.add(group.getElement(x, y));
-                    elements.add(group.getElement(x, k - y));
-                }
+        for (int x = 0; x < k; x++) {
+            Optional<EllipticCurveActualElement> element = group.getElement(x);
+            if (element.isPresent()) {
+                elements.add(element.get());
+                elements.add(element.get().negate());
+
             }
         }
         System.out.println("elements.size() = " + elements.size());

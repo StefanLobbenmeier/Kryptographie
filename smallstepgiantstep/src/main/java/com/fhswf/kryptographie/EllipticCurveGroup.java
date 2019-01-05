@@ -3,6 +3,7 @@ package com.fhswf.kryptographie;
 import org.apache.commons.lang3.Range;
 
 import java.math.BigInteger;
+import java.util.Optional;
 
 
 public class EllipticCurveGroup implements Group<EllipticCurveGroupElement> {
@@ -36,7 +37,7 @@ public class EllipticCurveGroup implements Group<EllipticCurveGroupElement> {
     }
 
     /**
-     * @return (x ^ 3 + u * x + v) mod modulus
+     * @return y ^ 2 == (x ^ 3 + u * x + v), mod modulus
      */
     private boolean liesOnCurve(ZModZPStarElement x, ZModZPStarElement y) {
         ZModZPStarElement leftSide = y.pow(2);
@@ -52,7 +53,7 @@ public class EllipticCurveGroup implements Group<EllipticCurveGroupElement> {
         return liesOnCurve(getUnderlyingGroup().getElement(x), getUnderlyingGroup().getElement(y));
     }
 
-    private EllipticCurveActualElement getElement(ZModZPStarElement x, ZModZPStarElement y) {
+    public EllipticCurveActualElement getElement(ZModZPStarElement x, ZModZPStarElement y) {
         if (!liesOnCurve(x, y))
             throw new IllegalArgumentException(String.format("The Point P(%s, %s) does not lie on the curve)", x, y));
         return new EllipticCurveActualElement(this, x, y);
@@ -60,6 +61,15 @@ public class EllipticCurveGroup implements Group<EllipticCurveGroupElement> {
 
     public EllipticCurveActualElement getElement(int x, int y) {
         return getElement(group.getElement(x), group.getElement(y));
+    }
+
+    public Optional<EllipticCurveActualElement> getElement(int x) {
+        for (int y = 0; y < this.getK().intValueExact() / 2 + 1; y++) {
+            if (liesOnCurve(x, y)) {
+                return Optional.of(getElement(x, y));
+            }
+        }
+        return Optional.empty();
     }
 
     public ZModZPStarElement getU() {

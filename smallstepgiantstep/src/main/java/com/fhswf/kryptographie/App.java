@@ -2,15 +2,13 @@ package com.fhswf.kryptographie;
 
 import java.math.BigInteger;
 import java.util.HashSet;
+import java.util.Optional;
 
 /**
  * Hello world!
- *
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
+public class App {
+    public static void main(String[] args) {
         task1BabystepGianststep();
 
         task2Ecc();
@@ -34,25 +32,25 @@ public class App
         // Information on the curve can be found here http://www.lmfdb.org/EllipticCurve/Q/496/a/1
 
 
-        int k = 127;
-        EllipticCurveGroup group = new EllipticCurveGroup(1, 1, k);
+        EllipticCurveGroup group = new EllipticCurveGroup(1, 1, 127);
 
-        task2aEcc(group, k);
+        task2aEcc(group);
         task2bEcc(group);
         task2cEcc(group);
     }
 
-    private static void task2aEcc(EllipticCurveGroup group, int k) {
+    private static void task2aEcc(EllipticCurveGroup group) {
         System.out.println("Task 2a) Count Number of Elements");
         System.out.println("group.hasseInterval() = " + group.hasseInterval());
         HashSet<EllipticCurveGroupElement> elements = new HashSet<>();
         elements.add(EllipticCurveNeutralElement.getNeutralElement());
-        for(int x = 0; x < k; x++) {
-            for(int y = 0; y < k / 2 + 1; y++) {
-                if(group.liesOnCurve(x, y)) {
-                    elements.add(group.getElement(x, y));
-                    elements.add(group.getElement(x, k - y));
-                }
+        int k = group.getK().intValue();
+        for (int x = 0; x < k; x++) {
+            Optional<EllipticCurveActualElement> element = group.getElement(x);
+            if (element.isPresent()) {
+                elements.add(element.get());
+                elements.add(element.get().negate());
+
             }
         }
         System.out.println("elements.size() = " + elements.size());

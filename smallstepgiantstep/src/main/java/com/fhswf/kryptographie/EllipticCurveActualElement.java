@@ -128,4 +128,8 @@ public class EllipticCurveActualElement implements EllipticCurveGroupElement {
     public BigInteger getCofactor() {
         return group.getK().divide(getOrder());
     }
+
+    public EllipticCurveActualElement negate() {
+        return group.getElement(x, y.negate());
+    }
 }

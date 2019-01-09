@@ -3,6 +3,8 @@ package com.fhswf.kryptographie;
 import org.apache.commons.lang3.Range;
 
 import java.math.BigInteger;
+import java.util.Optional;
+
 
 public class EllipticCurveGroup implements Group<EllipticCurveGroupElement> {
     static final EllipticCurveGroupElement NEUTRAL_ELEMENT = EllipticCurveNeutralElement.getNeutralElement();
@@ -15,27 +17,27 @@ public class EllipticCurveGroup implements Group<EllipticCurveGroupElement> {
     }
 
     EllipticCurveGroup(BigInteger u, BigInteger v, BigInteger modulus) {
-        checkUAndV(u, v);
-
         group = new ZModZPStarGroup(modulus);
         this.u = group.getElement(u);
-        this.v = group.getElement(u);
+        this.v = group.getElement(v);
+
+        checkUAndV();
     }
 
     /**
      * @throws IllegalArgumentException if 4*u^3 + 27*v^2 == 0
      */
-    static void checkUAndV(BigInteger u, BigInteger v) {
-        BigInteger _4u3 = BigInteger.valueOf(4).multiply(u.pow(3));
-        BigInteger _27v2 = BigInteger.valueOf(27).multiply(v.pow(2));
+    void checkUAndV() {
+        ZModZPStarElement _4u3 = group.getElement(4).multiply(u.pow(3));
+        ZModZPStarElement _27v2 = group.getElement(27).multiply(v.pow(2));
 
-        if (_4u3.add(_27v2).equals(BigInteger.ZERO)) {
+        if (_4u3.add(_27v2).equals(group.getElement(BigInteger.ZERO))) {
             throw new IllegalArgumentException("Criteria 4*u^3 + 27*v^2 == 0 is not fulfilled");
         }
     }
 
     /**
-     * @return (x ^ 3 + u * x + v) mod modulus
+     * @return y ^ 2 == (x ^ 3 + u * x + v), mod modulus
      */
     private boolean liesOnCurve(ZModZPStarElement x, ZModZPStarElement y) {
         ZModZPStarElement leftSide = y.pow(2);
@@ -51,7 +53,7 @@ public class EllipticCurveGroup implements Group<EllipticCurveGroupElement> {
         return liesOnCurve(getUnderlyingGroup().getElement(x), getUnderlyingGroup().getElement(y));
     }
 
-    private EllipticCurveActualElement getElement(ZModZPStarElement x, ZModZPStarElement y) {
+    public EllipticCurveActualElement getElement(ZModZPStarElement x, ZModZPStarElement y) {
         if (!liesOnCurve(x, y))
             throw new IllegalArgumentException(String.format("The Point P(%s, %s) does not lie on the curve)", x, y));
         return new EllipticCurveActualElement(this, x, y);
@@ -59,6 +61,15 @@ public class EllipticCurveGroup implements Group<EllipticCurveGroupElement> {
 
     public EllipticCurveActualElement getElement(int x, int y) {
         return getElement(group.getElement(x), group.getElement(y));
+    }
+
+    public Optional<EllipticCurveActualElement> getElement(int x) {
+        for (int y = 0; y < this.getK().intValueExact() / 2 + 1; y++) {
+            if (liesOnCurve(x, y)) {
+                return Optional.of(getElement(x, y));
+            }
+        }
+        return Optional.empty();
     }
 
     public ZModZPStarElement getU() {

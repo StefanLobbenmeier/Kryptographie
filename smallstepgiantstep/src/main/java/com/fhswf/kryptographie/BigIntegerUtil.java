@@ -27,6 +27,10 @@ public class BigIntegerUtil {
     }
 
     public static boolean isEven(BigInteger i) {
-        return i.getLowestSetBit() != 0;
+        return !isUneven(i);
+    }
+
+    public static boolean isUneven(BigInteger i) {
+        return i.testBit(0);
     }
 }

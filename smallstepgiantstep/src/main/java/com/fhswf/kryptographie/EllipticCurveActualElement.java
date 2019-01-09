@@ -27,25 +27,16 @@ public class EllipticCurveActualElement implements EllipticCurveGroupElement {
 
     @Override
     public EllipticCurveGroupElement pow(BigInteger e) {
-        int factors = e.bitLength();
+        int n = e.bitLength();
 
-        BigInteger currentE = e;
-        EllipticCurveGroupElement baseToTwoIModK = this;
-        EllipticCurveGroupElement currentResult = NEUTRAL_ELEMENT;
-        for (int i = 0; i < factors; i++) {
-            EllipticCurveGroupElement factor;
-            if (BigIntegerUtil.isEven(currentE))
-                factor = NEUTRAL_ELEMENT;
-            else
-                factor = baseToTwoIModK;
-
-            currentResult = currentResult.multiply(factor);
-
-            baseToTwoIModK = baseToTwoIModK.multiply(baseToTwoIModK);
-            currentE = currentE.shiftRight(1);
+        EllipticCurveGroupElement s = this;
+        for (int i = n - 2; i >= 0; i--) {
+            s = s.multiply(s);
+            if (e.testBit(i))
+                s = s.multiply(this);
         }
 
-        return currentResult;
+        return s;
     }
 
     public EllipticCurveGroupElement multiply(EllipticCurveGroupElement other) {

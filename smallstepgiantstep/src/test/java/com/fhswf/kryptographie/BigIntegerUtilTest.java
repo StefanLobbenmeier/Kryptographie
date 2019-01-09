@@ -7,6 +7,7 @@ import java.math.BigInteger;
 import static java.math.BigInteger.ONE;
 import static java.math.BigInteger.valueOf;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 
 public class BigIntegerUtilTest {
@@ -41,12 +42,14 @@ public class BigIntegerUtilTest {
 
     @Test
     public void testIsEven() {
-        assertBigIntEven(0, true);
+        assertBigIntEven(1, false);
         assertBigIntEven(2, true);
-        assertBigIntEven(-2, true);
 
         assertBigIntEven(-1, false);
-        assertBigIntEven(1, false);
+        assertBigIntEven(-2, true);
+
+
+        assertBigIntEven(0, true);
     }
 
     private void assertBigIntEven(int i, boolean b) {
@@ -55,6 +58,7 @@ public class BigIntegerUtilTest {
 
     private void assertBigIntEven(BigInteger i, boolean b) {
         assertThat(BigIntegerUtil.isEven(i), is(b));
+        assertThat(BigIntegerUtil.isUneven(i), not(b));
     }
 
 

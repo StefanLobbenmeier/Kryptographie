@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="multipletimepad" />
         <module name="rsa" />
         <module name="smallstepgiantstep" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="multipletimepad" target="11" />
       <module name="rsa" target="8" />
       <module name="smallstepgiantstep" target="1.8" />
     </bytecodeTargetLevel>

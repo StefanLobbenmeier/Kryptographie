@@ -4,37 +4,22 @@
     <option name="SCOPE_TYPE" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cac48c91-3c1b-402c-aeef-a48bad0628f2" name="Default Changelist" comment="Finished Implementation of the Task 2, also some Refactoring">
+    <list default="true" id="cac48c91-3c1b-402c-aeef-a48bad0628f2" name="Default Changelist" comment="Added presentations">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AES/AES.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AES/AES.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsa/rsa.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rsa/rsa.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsa/src/main/java/com/fhswf/kryptographie/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/rsa/src/main/java/com/fhswf/kryptographie/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsa/src/test/java/com/fhswf/kryptographie/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/rsa/src/test/java/com/fhswf/kryptographie/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsa/target/classes/com/fhswf/kryptographie/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/rsa/target/classes/com/fhswf/kryptographie/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsa/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/rsa/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsa/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/rsa/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsa/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/rsa/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsa/target/surefire-reports/TEST-com.fhswf.kryptographie.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rsa/target/surefire-reports/TEST-com.fhswf.kryptographie.AppTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsa/target/surefire-reports/TEST-com.fhswf.kryptographie.EuklideanAlgorithmTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rsa/target/surefire-reports/TEST-com.fhswf.kryptographie.EuklideanAlgorithmTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsa/target/surefire-reports/com.fhswf.kryptographie.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/rsa/target/surefire-reports/com.fhswf.kryptographie.AppTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsa/target/surefire-reports/com.fhswf.kryptographie.EuklideanAlgorithmTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/rsa/target/surefire-reports/com.fhswf.kryptographie.EuklideanAlgorithmTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsa/target/test-classes/com/fhswf/kryptographie/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/rsa/target/test-classes/com/fhswf/kryptographie/AppTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smallstepgiantstep/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/smallstepgiantstep/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Praesenz2/Aufgabe 1a.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Praesenz2/sha256.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Praesenz2/sha256_vollstaendig.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multipletimepad/multipletimepad.iml" beforeDir="false" afterPath="$PROJECT_DIR$/multipletimepad/multipletimepad.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smallstepgiantstep/smallstepgiantstep.iml" beforeDir="false" afterPath="$PROJECT_DIR$/smallstepgiantstep/smallstepgiantstep.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/BabyStepGiantStep.java" beforeDir="false" afterPath="$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/BabyStepGiantStep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/EllipticCurveActualElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/EllipticCurveActualElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/EllipticCurveGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/EllipticCurveGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/EllipticCurveGroupElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/EllipticCurveGroupElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/ZModZPStarElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/ZModZPStarElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/ZModZPStarGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/ZModZPStarGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smallstepgiantstep/src/test/java/com/fhswf/kryptographie/BabyStepGiantStepTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smallstepgiantstep/src/test/java/com/fhswf/kryptographie/EllipticCurveActualElementTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/smallstepgiantstep/src/test/java/com/fhswf/kryptographie/EllipticCurveActualElementTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/Enigma_old/target/" />
     <ignored path="$PROJECT_DIR$/rsa/target/" />
     <ignored path="$PROJECT_DIR$/smallstepgiantstep/target/" />
+    <ignored path="$PROJECT_DIR$/multipletimepad/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,11 +37,71 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/test/java/com/fhswf/kryptographie/EllipticCurveActualElementTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+            <state relative-caret-position="345">
+              <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/App.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/multipletimepad/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/EllipticCurveGroup.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/test/java/com/fhswf/kryptographie/TestDiffieHellman.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/test/java/com/fhswf/kryptographie/TestDiscreteLogarithm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/test/java/com/fhswf/kryptographie/TestZModuloPZStarElements.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -148,6 +193,15 @@
   <component name="MavenProjectNavigator">
     <treeState>
       <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Multiple Time Pad" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Multiple Time Pad" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="rsa" type="9519ce18:MavenProjectsStructure$ProjectNode" />
@@ -289,98 +343,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Kryptographie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="charutils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kryptographie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rsa" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kryptographie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rsa" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kryptographie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rsa" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kryptographie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rsa" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kryptographie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rsa" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="kryptographie" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kryptographie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="smallstepgiantstep" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kryptographie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="smallstepgiantstep" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kryptographie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="smallstepgiantstep" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kryptographie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="smallstepgiantstep" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kryptographie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="smallstepgiantstep" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="kryptographie" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kryptographie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="smallstepgiantstep" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kryptographie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="smallstepgiantstep" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kryptographie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="smallstepgiantstep" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="kryptographie" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -389,7 +352,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546204648462" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547064030372" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="extract.method.default.visibility" value="private" />
@@ -398,7 +361,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.intentionPowerPack" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -426,7 +389,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.EllipticCurveActualElementTest.f">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.fhswf.kryptographie.App" />
       <module name="smallstepgiantstep" />
@@ -513,10 +476,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.App" />
         <item itemvalue="JUnit.EllipticCurveActualElementTest.f" />
         <item itemvalue="JUnit.EllipticCurveActualElementTest.testThatConstructionOfIllegalGroupFails" />
         <item itemvalue="JUnit.EllipticCurveActualElementTest.checkUAndV" />
-        <item itemvalue="Application.App" />
         <item itemvalue="JUnit.AppTest.testCommonFactorYieldsException" />
       </list>
     </recent_temporary>
@@ -545,6 +508,9 @@
       <workItem from="1545216647272" duration="37765000" />
       <workItem from="1545592250229" duration="2754000" />
       <workItem from="1546203201862" duration="1465000" />
+      <workItem from="1546553250010" duration="484000" />
+      <workItem from="1547063047708" duration="398000" />
+      <workItem from="1547063565544" duration="455000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented Task 1">
       <created>1544654182905</created>
@@ -603,7 +569,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56076000" />
+    <option name="totallyTimeSpent" value="57290000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -615,10 +581,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="1057" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="1057" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48536208" weight="0.1996805" />
-      <window_info id="Structure" order="1" sideWeight="0.5146379" side_tool="true" visible="true" weight="0.1996805" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48107255" visible="true" weight="0.20394036" />
+      <window_info id="Structure" order="1" sideWeight="0.51892745" side_tool="true" visible="true" weight="0.20394036" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -627,7 +594,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32953367" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34300518" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49840257" visible="true" weight="0.34300518" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39896372" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -635,7 +602,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" sideWeight="0.4992636" weight="0.32871288" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3284974" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50073636" side_tool="true" weight="0.32929516" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50159746" side_tool="true" visible="true" weight="0.34300518" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4992636" weight="0.32746115" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32953367" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
@@ -648,7 +615,7 @@
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Maven Projects" order="8" weight="0.3298969" />
+      <window_info anchor="right" id="Maven Projects" order="8" visible="true" weight="0.32960597" />
       <window_info anchor="right" id="Maven" order="9" visible="true" weight="0.12513313" />
       <window_info anchor="right" id="Coverage" order="10" sideWeight="0.50218976" side_tool="true" visible="true" weight="0.15245202" />
     </layout>
@@ -730,13 +697,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Kryptographie.iml" />
     <entry file="file://$PROJECT_DIR$/enigmaparent/src/test/java/com/fhswf/kryptographie/enigmaparent/AppTest.java" />
-    <entry file="file://$PROJECT_DIR$/multipletimepad/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/enigma/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -799,12 +759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="125" selection-start-line="125" selection-end-line="125" />
-          <folding>
-            <element signature="e#1904#1905#0" expanded="true" />
-            <element signature="e#1956#1957#0" expanded="true" />
-            <element signature="e#5134#5282#0" expanded="true" />
-            <element signature="e#5281#5282#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -812,10 +766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="43" selection-start-line="43" selection-end-line="43" />
-          <folding>
-            <element signature="e#1069#1070#0" expanded="true" />
-            <element signature="e#1138#1139#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -840,14 +790,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-          <folding>
-            <element signature="e#214#215#0" expanded="true" />
-            <element signature="e#241#242#0" expanded="true" />
-            <element signature="e#339#340#0" expanded="true" />
-            <element signature="e#369#370#0" expanded="true" />
-            <element signature="e#415#416#0" expanded="true" />
-            <element signature="e#461#462#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -855,10 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-          <folding>
-            <element signature="e#173#174#0" expanded="true" />
-            <element signature="e#222#223#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -870,20 +808,6 @@
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/math/BigInteger.java" />
-    <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/test/java/com/fhswf/kryptographie/TestDiffieHellman.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/test/java/com/fhswf/kryptographie/TestDiscreteLogarithm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/commons-lang/commons-lang/2.6/commons-lang-2.6.jar!/org/apache/commons/lang/math/Range.class" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/HashMap.java" />
     <entry file="file://$PROJECT_DIR$/smallstepgiantstep/pom.xml">
@@ -900,13 +824,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/test/java/com/fhswf/kryptographie/TestZModuloPZStarElements.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rsa/src/main/java/com/fhswf/kryptographie/EuklideanAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -918,9 +835,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="44" column="43" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -928,16 +842,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1410">
           <caret line="100" column="129" selection-start-line="100" selection-start-column="129" selection-end-line="100" selection-end-column="129" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -962,23 +866,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/test/java/com/fhswf/kryptographie/BabyStepGiantStepTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/test/java/com/fhswf/kryptographie/BabyStepGiantStepTest.java" />
     <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/ZModZPStarGroup.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding>
-            <element signature="e#278#279#0" expanded="true" />
-            <element signature="e#327#328#0" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -986,6 +878,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="93" column="26" selection-start-line="93" selection-start-column="26" selection-end-line="93" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/org/hamcrest/MatcherAssert.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/test/java/com/fhswf/kryptographie/TestDiffieHellman.kt" />
+    <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/test/java/com/fhswf/kryptographie/EllipticCurveActualElementTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -994,21 +904,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/main/java/com/fhswf/kryptographie/EllipticCurveGroup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="53" column="39" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
+        <state relative-caret-position="90">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/org/hamcrest/MatcherAssert.class">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/test/java/com/fhswf/kryptographie/EllipticCurveActualElementTest.java">
+    <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/test/java/com/fhswf/kryptographie/TestDiffieHellman.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        <state relative-caret-position="330">
+          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/test/java/com/fhswf/kryptographie/TestDiscreteLogarithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smallstepgiantstep/src/test/java/com/fhswf/kryptographie/TestZModuloPZStarElements.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/multipletimepad/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -1064,12 +992,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>AES</last-edited>
+          <last-edited>Praesenz3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

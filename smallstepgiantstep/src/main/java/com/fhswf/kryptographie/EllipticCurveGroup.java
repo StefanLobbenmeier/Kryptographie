@@ -88,12 +88,15 @@ public class EllipticCurveGroup implements Group<EllipticCurveGroupElement> {
         return getUnderlyingGroup().getModulus();
     }
 
+    /**
+     * @return The hasse Interval: [2 * √k - (k+1); 2 * √k + (k+1)]
+     */
     public Range<BigInteger> hasseInterval() {
-        BigInteger p = getK();
-        BigInteger _2TimesRootP = BigInteger.valueOf(2).multiply(BigIntegerUtil.bigIntSqRootCeil(p));
-        BigInteger pPlus1 = p.add(BigInteger.ONE);
-        BigInteger lBound = pPlus1.subtract(_2TimesRootP);
-        BigInteger uBound = pPlus1.add(_2TimesRootP);
+        BigInteger k = getK();
+        BigInteger _2TimesRootK = BigInteger.valueOf(2).multiply(BigIntegerUtil.bigIntSqRootCeil(k));
+        BigInteger kPlus1 = k.add(BigInteger.ONE);
+        BigInteger lBound = kPlus1.subtract(_2TimesRootK);
+        BigInteger uBound = kPlus1.add(_2TimesRootK);
         return Range.between(lBound, uBound);
     }
 }

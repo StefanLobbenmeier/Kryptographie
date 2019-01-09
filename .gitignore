@@ -177,7 +177,7 @@ fabric.properties
 hs_err_pid*
 
 ### Maven ###
-target/
+*/target/*
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -189,3 +189,6 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 
 # End of https://www.gitignore.io/api/java,maven,eclipse,intellij
+
+rsa/target
+smallstepgiantstep/target

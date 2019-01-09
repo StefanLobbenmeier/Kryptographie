@@ -50,7 +50,6 @@ public class App {
             if (element.isPresent()) {
                 elements.add(element.get());
                 elements.add(element.get().negate());
-
             }
         }
         System.out.println("elements.size() = " + elements.size());

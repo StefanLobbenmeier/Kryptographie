@@ -36,6 +36,17 @@ public class EllipticCurveActualElementTest {
         assertThat(group.getElement(0).get(), is(group.getElement(0, 1)));
         assertThat(group.getElement(4).get(), is(group.getElement(4, 1)));
         assertThat(group.getElement(13).get(), is(group.getElement(13, 1)));
+
+        assertThat(group.getElement(10).get(), is(group.getElement(10, 5)));
+    }
+
+    @Test
+    public void testNegate() {
+        assertThat(group.getElement(0, 1).negate(), is(group.getElement(0, 16)));
+        assertThat(group.getElement(4, 1).negate(), is(group.getElement(4, 16)));
+        assertThat(group.getElement(13, 1).negate(), is(group.getElement(13, 16)));
+
+        assertThat(group.getElement(10, 5).negate(), is(group.getElement(10, 12)));
     }
 
 

@@ -28,11 +28,11 @@ public class ZModZPStarElement implements GroupElement<ZModZPStarElement> {
     }
 
     public ZModZPStarElement divide(ZModZPStarElement dividend) {
-        return this.multiply(dividend.getValue().modInverse(zModZPStarGroup.getModulus()));
+        return multiply(dividend.invert());
     }
 
-    private ZModZPStarElement multiply(BigInteger factorB) {
-        return this.multiply(zModZPStarGroup.getElement(factorB));
+    public ZModZPStarElement invert() {
+        return zModZPStarGroup.getElement(getValue().modInverse(zModZPStarGroup.getModulus()));
     }
 
     @Override

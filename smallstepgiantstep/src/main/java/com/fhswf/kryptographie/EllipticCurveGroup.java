@@ -42,11 +42,15 @@ public class EllipticCurveGroup implements Group<EllipticCurveGroupElement> {
     private boolean liesOnCurve(ZModZPStarElement x, ZModZPStarElement y) {
         ZModZPStarElement leftSide = y.pow(2);
 
-        ZModZPStarElement rightSide = x.pow(3)
-                .add(u.multiply(x))
-                .add(v);
+        ZModZPStarElement rightSide = rightSideOfEccPointDefinition(x);
 
         return leftSide.equals(rightSide);
+    }
+
+    private ZModZPStarElement rightSideOfEccPointDefinition(ZModZPStarElement x) {
+        return x.pow(3)
+                .add(u.multiply(x))
+                .add(v);
     }
 
     public boolean liesOnCurve(int x, int y) {

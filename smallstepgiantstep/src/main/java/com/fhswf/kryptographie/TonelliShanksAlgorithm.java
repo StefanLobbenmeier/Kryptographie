@@ -65,7 +65,7 @@ public class TonelliShanksAlgorithm {
     private Optional<ZModZPStarElement> loop() {
         while (true) {
             if (ONE.equals(t))
-                return Optional.of(r);
+                return lowerRoot();
 
 
             boolean found = false;
@@ -87,6 +87,12 @@ public class TonelliShanksAlgorithm {
             }
         }
 
+    }
+
+    private Optional<ZModZPStarElement> lowerRoot() {
+        if (r.getValue().compareTo(p.divide(BigInteger.valueOf(2))) == 1)
+            r = r.negate();
+        return Optional.of(r);
     }
 
     private ZModZPStarElement selectNonSquare() {

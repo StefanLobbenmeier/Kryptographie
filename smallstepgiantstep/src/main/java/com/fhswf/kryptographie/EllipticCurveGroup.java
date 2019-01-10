@@ -67,13 +67,12 @@ public class EllipticCurveGroup implements Group<EllipticCurveGroupElement> {
         return getElement(group.getElement(x), group.getElement(y));
     }
 
+    public Optional<EllipticCurveActualElement> getElement(final ZModZPStarElement x) {
+        return rightSideOfEccPointDefinition(x).root().map(y -> getElement(x, y));
+    }
+
     public Optional<EllipticCurveActualElement> getElement(int x) {
-        for (int y = 0; y < this.getK().intValueExact() / 2 + 1; y++) {
-            if (liesOnCurve(x, y)) {
-                return Optional.of(getElement(x, y));
-            }
-        }
-        return Optional.empty();
+        return getElement(group.getElement(x));
     }
 
     public ZModZPStarElement getU() {

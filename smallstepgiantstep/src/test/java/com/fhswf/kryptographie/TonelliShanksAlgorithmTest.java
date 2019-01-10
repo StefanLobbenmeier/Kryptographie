@@ -13,8 +13,8 @@ public class TonelliShanksAlgorithmTest {
 
     @Test
     public void root() {
-        assertRoot(41, 5, 28);
-        assertRoot(13, 10, 7);
+        assertRoot(41, 5, 13);
+        assertRoot(13, 10, 6);
         assertRoot(101, 56, 37);
         assertRoot(10009, 1030, 1632);
         assertRootDoesNotExist(10009, 1032);

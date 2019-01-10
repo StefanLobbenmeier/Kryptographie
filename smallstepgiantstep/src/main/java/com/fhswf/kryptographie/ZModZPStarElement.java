@@ -1,8 +1,10 @@
 package com.fhswf.kryptographie;
 
 import java.math.BigInteger;
+import java.util.Optional;
 
-public class ZModZPStarElement implements GroupElement<ZModZPStarElement> {
+public class ZModZPStarElement implements GroupElement<ZModZPStarElement>, Comparable<ZModZPStarElement> {
+
 
     private final ZModZPStarGroup zModZPStarGroup;
     private final BigInteger value;
@@ -10,6 +12,9 @@ public class ZModZPStarElement implements GroupElement<ZModZPStarElement> {
     public ZModZPStarElement(ZModZPStarGroup zModZPStarGroup, BigInteger value) {
         this.zModZPStarGroup = zModZPStarGroup;
         this.value = value;
+    }
+    public ZModZPStarGroup getGroup() {
+        return zModZPStarGroup;
     }
 
     public BigInteger getValue() {
@@ -68,5 +73,18 @@ public class ZModZPStarElement implements GroupElement<ZModZPStarElement> {
 
     public ZModZPStarElement add(ZModZPStarElement b) {
         return zModZPStarGroup.getElement(value.add(b.value));
+    }
+
+    public int intValue() {
+        return getValue().intValue();
+    }
+
+    public int compareTo(ZModZPStarElement m) {
+        return value.compareTo(m.getValue());
+    }
+
+    public Optional<ZModZPStarElement> root() {
+        TonelliShanksAlgorithm rootStrategy = new TonelliShanksAlgorithm(zModZPStarGroup);
+        return rootStrategy.root(this);
     }
 }

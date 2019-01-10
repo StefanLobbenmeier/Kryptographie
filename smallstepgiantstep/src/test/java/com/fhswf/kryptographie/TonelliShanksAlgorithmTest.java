@@ -21,27 +21,35 @@ public class TonelliShanksAlgorithmTest {
     }
 
     private void assertRoot(int p, int n, int expected) {
-        assertThat(TonelliShanksAlgorithm.root(BigInteger.valueOf(p), BigInteger.valueOf(n)).get(), is(BigInteger.valueOf(expected)));
+
+        assertThat(root(BigInteger.valueOf(p), BigInteger.valueOf(n)).get(), is(BigInteger.valueOf(expected)));
     }
 
     private void assertRootDoesNotExist(int p, int n) {
-        assertThat(TonelliShanksAlgorithm.root(BigInteger.valueOf(p), BigInteger.valueOf(n)), is(Optional.empty()));
+        assertThat(root(BigInteger.valueOf(p), BigInteger.valueOf(n)), is(Optional.empty()));
+    }
+
+    public static Optional<BigInteger> root(BigInteger p, BigInteger n) {
+        ZModZPStarGroup group = new ZModZPStarGroup(p);
+        return group.getElement(n).root().map(ZModZPStarElement::getValue);
     }
 
     @Test
     public void legendreSymbol() {
-        assertLegendreSymbol(1, 97, SQAURE);
-        assertLegendreSymbol(4, 97, SQAURE);
-        assertLegendreSymbol(9, 97, SQAURE);
-        assertLegendreSymbol(16, 97, SQAURE);
+        ZModZPStarGroup group = new ZModZPStarGroup(97);
+        TonelliShanksAlgorithm tonelliShanksAlgorithm = new TonelliShanksAlgorithm(group);
+        assertLegendreSymbol(group.getElement(1), tonelliShanksAlgorithm, SQAURE);
+        assertLegendreSymbol(group.getElement(4), tonelliShanksAlgorithm, SQAURE);
+        assertLegendreSymbol(group.getElement(9), tonelliShanksAlgorithm, SQAURE);
+        assertLegendreSymbol(group.getElement(16), tonelliShanksAlgorithm, SQAURE);
 
-        assertLegendreSymbol(0, 97, 0);
+        assertLegendreSymbol(group.getElement(0), tonelliShanksAlgorithm, 0);
 
         //non squares are hard to find for now
     }
 
-    private void assertLegendreSymbol(int a, int p, int expected) {
-        assertThat(TonelliShanksAlgorithm.legendreSymbol(BigInteger.valueOf(a)), is(expected));
+    private void assertLegendreSymbol(ZModZPStarElement a, TonelliShanksAlgorithm tonelliShanksAlgorithm, int expected) {
+        assertThat(tonelliShanksAlgorithm.legendreSymbol(a), is(expected));
     }
 
 }

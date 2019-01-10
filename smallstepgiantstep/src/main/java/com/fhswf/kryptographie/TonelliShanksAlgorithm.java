@@ -5,47 +5,55 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.math.BigInteger;
 import java.util.Optional;
 
-import static java.math.BigInteger.ONE;
-import static java.math.BigInteger.ZERO;
 
 public class TonelliShanksAlgorithm {
 
     public static final int SQAURE = 1;
-    public static final BigInteger TWO = BigInteger.valueOf(2);
+    private ZModZPStarElement ZERO;
+    private ZModZPStarElement ONE;
+    private ZModZPStarElement TWO;
 
-    private static BigInteger p;
-    private static BigInteger n;
-    private static BigInteger q;
-    private static BigInteger s;
-    private static BigInteger r;
-    private static BigInteger t;
-    private static BigInteger m;
-    private static BigInteger c;
+    private BigInteger p;
+    private BigInteger q;
+    private ZModZPStarElement s;
+    private ZModZPStarElement r;
+    private ZModZPStarElement t;
+    private ZModZPStarElement m;
+    private ZModZPStarElement c;
+    private ZModZPStarGroup group;
+    private ZModZPStarElement n;
+
+    TonelliShanksAlgorithm(ZModZPStarGroup group) {
+        this.group = group;
+
+        p = group.getModulus();
+        ZERO = group.getElement(0);
+        ONE = group.getElement(1);
+        TWO = group.getElement(2);
+    }
 
     /**
      * https://rosettacode.org/wiki/Tonelli-Shanks_algorithm
      *
-     * @param p A prime
      * @param n an element of (Z/pZ) such that solutions to the congruence r2 = n exist;
      * @return r in (Z/pZ) such that r^2 = n
      */
-    public static Optional<BigInteger> root(BigInteger p, BigInteger n) {
-        TonelliShanksAlgorithm.p = p;
-        TonelliShanksAlgorithm.n = n;
+        public Optional<ZModZPStarElement> root(ZModZPStarElement n) {
+            this.n = n;
         // Step 0. Check that n is indeed a square  : (n | p) must be ≡ 1
-        if (legendreSymbol(n) == SQAURE) {
+            if (SQAURE == legendreSymbol(n)) {
 
             //Step 1. [Factors out powers of 2 from p-1] Define q -odd- and s such as p-1 = q * 2^s
-            factorOutTwos(p.subtract(ONE));
+            factorOutTwos(p.subtract(BigInteger.ONE));
 
             if (ONE.equals(s))
                 return specialCaseR();
 
-            BigInteger z = selectNonSquare();
-            c = z.modPow(q, p);
+            ZModZPStarElement z = selectNonSquare();
+            c = z.pow(q);
 
-            r = n.modPow(q.add(ONE).divide(TWO), p);
-            t = n.modPow(q, p);
+            r = n.pow(q.add(BigInteger.ONE).divide(BigInteger.valueOf(2)));
+            t = n.pow(q);
             m = s;
 
             return loop();
@@ -54,25 +62,25 @@ public class TonelliShanksAlgorithm {
         return Optional.empty();
     }
 
-    private static Optional<BigInteger> loop() {
+    private Optional<ZModZPStarElement> loop() {
         while (true) {
             if (ONE.equals(t))
                 return Optional.of(r);
 
 
             boolean found = false;
-            BigInteger i;
+            ZModZPStarElement i;
             for(i = ONE; i.compareTo(m) == -1; i = i.add(ONE)) {
-                if(ONE.equals(t.modPow(TWO.modPow(i, p), p))) {
+                if(ONE.equals(t.pow(TWO.pow(i.getValue()).getValue()))) {
                     found = true;
                     break;
                 }
             }
             if(found) {
-                BigInteger b = c.modPow(TWO.modPow(m.subtract(i).subtract(ONE), p), p);
-                r = r.multiply(b).mod(p);
-                t = t.multiply(b.pow(2)).mod(p);
-                c = b.pow(2).mod(p);
+                ZModZPStarElement b = c.pow(TWO.pow(m.subtract(i).subtract(ONE).getValue()).getValue());
+                r = r.multiply(b);
+                t = t.multiply(b.pow(2));
+                c = b.pow(2);
                 m = i;
             } else {
                 throw new IllegalArgumentException("Should not happen, but apparently this doesnt work");
@@ -81,8 +89,8 @@ public class TonelliShanksAlgorithm {
 
     }
 
-    private static BigInteger selectNonSquare() {
-        BigInteger z = TWO;
+    private ZModZPStarElement selectNonSquare() {
+        ZModZPStarElement z = TWO;
         while (true) {
             int legendreSymbol = legendreSymbol(z);
             if (SQAURE == legendreSymbol || 0 == legendreSymbol)
@@ -92,11 +100,11 @@ public class TonelliShanksAlgorithm {
         return z;
     }
 
-    private static Optional<BigInteger> specialCaseR() {
-        return Optional.of(n.modPow(p.add(ONE).divide(BigInteger.valueOf(4)), n));
+    private Optional<ZModZPStarElement> specialCaseR() {
+        return Optional.of(n.pow(p.add(BigInteger.ONE).divide(BigInteger.valueOf(4))));
     }
 
-    private static void factorOutTwos(BigInteger p) {
+    private void factorOutTwos(BigInteger p) {
         q = p;
         s = ZERO;
         while (BigIntegerUtil.isEven(q)) {
@@ -108,8 +116,8 @@ public class TonelliShanksAlgorithm {
     /**
      * @return SQAURE if a is a square, 0 if a is 0 and NOT_SQUARE if a is not a square
      */
-    static int legendreSymbol(BigInteger a) {
-        return a.modPow(p.subtract(ONE).divide(BigInteger.valueOf(2)), p).intValue();
+    int legendreSymbol(ZModZPStarElement a) {
+        return a.pow(p.subtract(ONE.getValue()).divide(BigInteger.valueOf(2))).intValue();
     }
 
 

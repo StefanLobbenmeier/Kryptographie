@@ -40,7 +40,7 @@ public class TonelliShanksAlgorithm {
      */
         public Optional<ZModZPStarElement> root(ZModZPStarElement n) {
             this.n = n;
-        // Step 0. Check that n is indeed a square  : (n | p) must be ≡ 1
+            // Step 0. Check that n is indeed a square  : (n | p) must be ≡ 1
             if (SQAURE == legendreSymbol(n)) {
 
             //Step 1. [Factors out powers of 2 from p-1] Define q -odd- and s such as p-1 = q * 2^s

@@ -19,6 +19,7 @@ public class App {
         ZModZPStarGroup group = new ZModZPStarGroup(BigInteger.valueOf(2698727L));
         ZModZPStarElement bigA = group.getElement(BigInteger.valueOf(3));
         ZModZPStarElement base = group.getElement(BigInteger.valueOf(2));
+
         int a = BabyStepGiantStep.babyStepGiantStep(group, bigA, base);
 
         System.out.printf("a = log2 %s = %s %n", bigA, a);
